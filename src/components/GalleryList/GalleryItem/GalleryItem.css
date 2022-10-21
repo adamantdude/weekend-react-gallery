@@ -1,0 +1,15 @@
+.oneItem {
+    border: 1px solid black;
+    box-sizing: border-box;
+    width: 152px;
+    height: 152px;
+}
+
+.clickView {
+    width: 150px;
+    height: 150px;
+}
+
+.clickView p {
+    margin: 0;
+}
