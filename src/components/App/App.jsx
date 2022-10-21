@@ -11,7 +11,7 @@ function App() {
 
   useEffect(() => {
     getGallery();
-  }, [])
+  }, []);
 
   const getGallery = () => {
     Axios({
@@ -48,6 +48,21 @@ function App() {
     })
       .then(res => {
         console.log(res);
+        getGallery();
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
+
+  const delPicture = (id) => {
+    Axios({
+      method: 'DELETE',
+      url: `/gallery/${id}`
+    })
+      .then(res => {
+        console.log(res);
+        getGallery();
       })
       .catch(err => {
         console.log(err);
@@ -60,7 +75,7 @@ function App() {
           <h1 className="App-title">Gallery of My Life</h1>
         </header>
         <GalleryForm newFN={newPicture}/>
-        <GalleryList list={items} postFN={postLike}/>
+        <GalleryList list={items} postFN={postLike} delFN={delPicture}/>
       </div>
     );
 }
