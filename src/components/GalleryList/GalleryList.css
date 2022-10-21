@@ -1,5 +1,7 @@
 div#gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 150px));
+    grid-template-columns: repeat(auto-fill, minmax(150px, 160px));
+    grid-template-rows: repeat(auto-fill, minmax(225px, 225px));
     margin: 20px;
+    justify-items: center;
 }
