@@ -33,4 +33,20 @@ router.get('/', (req, res) => {
         })
 }); // END GET Route
 
+//POST route
+router.post('/', (req, res) => {
+    let sqlText = `
+        INSERT INTO "react_gallery" ("path", "description", "likes")
+        VALUES ($1, $2, $3)
+    `
+    pool.query(sqlText, [req.body.url, req.body.description, 0])
+        .then(result => {
+            res.sendStatus(201);
+        })
+        .catch(err => {
+            console.log(err);
+            res.sendStatus(500);
+        })
+})
+
 module.exports = router;

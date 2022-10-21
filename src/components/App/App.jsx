@@ -3,6 +3,7 @@ import './App.css';
 import GalleryList from '../GalleryList/GalleryList';
 import { useState, useEffect } from 'react';
 import Axios from 'axios';
+import GalleryForm from '../GalleryForm/GalleryForm';
 
 function App() {
 
@@ -39,11 +40,26 @@ function App() {
       })
   }
 
+  const newPicture = (picture) => {
+    Axios({
+      method: 'POST',
+      url: '/gallery',
+      data: picture
+    })
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
+
     return (
       <div className="App">
         <header className="App-header">
           <h1 className="App-title">Gallery of My Life</h1>
         </header>
+        <GalleryForm newFN={newPicture}/>
         <GalleryList list={items} postFN={postLike}/>
       </div>
     );
