@@ -1,7 +1,7 @@
 import { useState } from "react";
 import './GalleryItem.css';
 
-function GalleryItem({item, postFN}) {
+function GalleryItem({item, postFN, delFN}) {
 
     const [viewMode, setView] = useState(false);
 
@@ -11,6 +11,10 @@ function GalleryItem({item, postFN}) {
 
     const likeHandler = () => {
         postFN(item.id);
+    }
+
+    const delHandler = () => {
+        delFN(item.id)
     }
 
     return (
@@ -28,6 +32,7 @@ function GalleryItem({item, postFN}) {
             <div>
                 <p>{item.likes} people love this!</p>
                 <button onClick={likeHandler}>Like!</button>
+                <button onClick={delHandler}>Delete</button>
             </div>
         </div>
     )

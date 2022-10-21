@@ -6,8 +6,15 @@ function GalleryForm({newFN}) {
     const [url, setUrl] = useState('');
     const [description, setDesc] = useState('');
 
-    const urlHandler = () => {
-        newFN({url: url, description: description})
+    const urlHandler = (e) => {
+        e.preventDefault();
+        if(!(url && description)) {
+            alert('Please fill in all boxes');
+            return;
+        }
+        newFN({url: url, description: description});
+        setUrl('');
+        setDesc('');
     }
 
     return (
