@@ -1,7 +1,6 @@
 div#gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 160px));
-    grid-template-rows: repeat(auto-fill, minmax(225px, 225px));
-    margin: 20px;
+    display: flex;
     justify-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
 }
